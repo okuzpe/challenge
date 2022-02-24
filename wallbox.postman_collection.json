@@ -1,0 +1,332 @@
+{
+	"info": {
+		"_postman_id": "864c2e7b-1247-4ab2-a0ff-82ca9ad075b4",
+		"name": "wallbox",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Charger",
+			"item": [
+				{
+					"name": "POST Charger",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"SNP11\",\n    \"type\": \"TESLA\",\n    \"user\":\"62177c151847f7eda4c2375a\",\n    \"voltage\": {\n        \"power\": \"AC\",\n        \"amount\": 100\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/charger",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"charger"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Chargers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/chargers",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"chargers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Charger",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/charger/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"charger",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6217816a4cf41dfcd7ebdc1b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH Charger Enable Notify",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"notify\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/charger/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"charger",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "GET User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/user/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6217775739dc957e29850f99"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"wallbox\",\n    \"email\": \"wallbox@test.com\",\n    \"country\": \"Spain\",\n    \"lang\": \"ES\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH User Enable Notify",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"notify\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "62177c211847f7eda4c2375d"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Session",
+			"item": [
+				{
+					"name": "GET Sessions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/sessions",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Session",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const moment = require('moment');",
+									"",
+									"pm.environment.set('startDate', moment().format((\"YYYY-MM-DD HH:mm\")));",
+									"pm.environment.set('endDate', moment().add(12, 'minutes').format((\"YYYY-MM-DD HH:mm\")));",
+									"",
+									"pm.environment.set('initialBatery',_.random(1,50));",
+									"pm.environment.set('finalBatery', _.random(50,100));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"charger\": \"6217816a4cf41dfcd7ebdc1b\",\n    \"startDate\": \"{{startDate}}\",\n    \"endDate\": \"{{endDate}}\",\n    \"initialBatery\": \"{{initialBatery}}\",\n    \"finalBatery\": \"{{finalBatery}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/session",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"session"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TEST Email Service",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/test-send-mail",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"test-send-mail"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
