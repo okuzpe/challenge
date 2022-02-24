@@ -13,15 +13,10 @@ const dbConfig = {
   },
 };
 
-
-export const db = async() =>
-await mongoose.createConnection(connectionUrl,dbConfig).asPromise();
-
-  // mongoose
-  //   .connect(connectionUrl, dbConfig)
-  //   .then(() => console.log('DB Connected'))
-  //   .catch((err: any) => {
-  //     console.log(`DB Connection Error: ${err.message}`);
-  //   });
-  //   console.log(connectionUrl,dbConfig);
-    
+export const db = () =>
+  mongoose
+    .connect(connectionUrl, dbConfig)
+    .then(() => console.log('DB Connected'))
+    .catch((err: any) => {
+      console.log(`DB Connection Error: ${err.message}`);
+    });

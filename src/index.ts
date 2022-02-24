@@ -14,7 +14,6 @@ app.use(express.urlencoded({ extended: false }));
 //DB
 db();
 
-
 //Routes
 app.use('/', routes);
 

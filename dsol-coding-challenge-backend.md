@@ -31,6 +31,7 @@ Build a service which handles the following things:
 Some Help
 
 - A charger's daily report must show:
+
   - the report's current date
   - the total amount of charging sessions registered by the charger that day
   - the total amount of time the charger has been charging that day
