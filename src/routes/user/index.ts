@@ -38,7 +38,7 @@ const createUser = async (req: Request, res: Response) => {
   try {
     await UserService.validateBody(body);
     const existUser = await UserService.getByEmail(body.email);
-    if (existUser.length) {
+    if (existUser) {
       return res.status(409).json({
         message: CONFLICT,
       });

@@ -20,8 +20,10 @@ This is an API maked with:
 ## Installation & Local Run
 Ensure you have node 14 or higher.
 
-1. `yarn`
-2. `yarn start:dev`
+1. `yarn` install dependeces
+2. `yarn start:dev` run on watch mode for local work
+3. `yarn test` run the test cases
+4. `yarn test:watch` run the test cases on watch mode for local work
 
 ## Postman Collection
 

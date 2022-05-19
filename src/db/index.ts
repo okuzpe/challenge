@@ -13,7 +13,7 @@ const dbConfig = {
   },
 };
 
-export const db = () =>
+export const db = async() =>
   mongoose
     .connect(connectionUrl, dbConfig)
     .then(() => console.log('DB Connected'))
